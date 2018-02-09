@@ -2708,10 +2708,15 @@ tr.tentative-crossed td , tr.tentative-crossed td a {
 	display: none;
 }
 
+.data-container table tbody tr:hover {
+        color: #000;
+}
+
 #buy_asset_box .box-header, #sell_asset_box .box-header, #buy_asset_box .box-title, #sell_asset_box .box-title {
 	cursor: pointer;
 }
 
+#sell_asset_total, #buy_asset_total { color:#000 !important; background:#FFF; }
 /* http://stackoverflow.com/questions/12996736/basic-jquery-animation-elipsis-three-dots-sequentially-appearing */
 
 @-webkit-keyframes opacity {
@@ -3842,6 +3847,10 @@ body > .header .navbar {
     width: 100%;
     overflow: hidden;
     cursor: none;
+}
+
+#sell_asset_total {
+	color:#000;
 }
 
 @media (max-width: 700px) {

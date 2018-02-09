@@ -356,9 +356,9 @@ var NRS = (function(NRS, $) {
         inputFields.push($('#shape_shift_coin_1'));
         inputFields.push($('#shape_shift_coin_2'));
         var selectedCoins = [];
-        selectedCoins.push(NRS.settings.exchange_coin0);
-        selectedCoins.push(NRS.settings.exchange_coin1);
-        selectedCoins.push(NRS.settings.exchange_coin2);
+        //selectedCoins.push(NRS.settings.exchange_coin0);
+        //selectedCoins.push(NRS.settings.exchange_coin1);
+        //selectedCoins.push(NRS.settings.exchange_coin2);
         apiCall('getcoins', {}, 'GET', function (data) {
             SUPPORTED_COINS = data;
             for (var i = 0; i < inputFields.length; i++) {
@@ -409,9 +409,9 @@ var NRS = (function(NRS, $) {
     	//var exchange_deposit_div_button = $("#exchange_deposit_div_button");
         var selectedCoins = [];
         var newButton = [];
-        selectedCoins.push(NRS.settings.exchange_coin0);
-        selectedCoins.push(NRS.settings.exchange_coin1);
-        selectedCoins.push(NRS.settings.exchange_coin2);
+        //selectedCoins.push(NRS.settings.exchange_coin0);
+        //selectedCoins.push(NRS.settings.exchange_coin1);
+        //selectedCoins.push(NRS.settings.exchange_coin2);
         for (var i = 0; i < selectedCoins.length; i++) {
             buttonTxt = $.t("exchange_deposit_button", { coin: selectedCoins[i] });
         	newButton[i] = '<a class="btn btn-default" href="#" id="exchange_deposit_'+selectedCoins[i]+'" data-toggle="modal" data-target="#deposit_coin_modal" coin-type="'+selectedCoins[i]+'">'+buttonTxt+'</a>';
