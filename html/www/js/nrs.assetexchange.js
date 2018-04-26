@@ -120,17 +120,17 @@ var NRS = (function (NRS, $, undefined) {
                     });*/
 
                     //check owned assets, see if any are not yet in bookmarked assets
-		   /* codec : don't add any owned since all asset already loaded, creating multiple entries on the first load
+		  
                     if (NRS.accountInfo.unconfirmedAssetBalances) {
                         var newAssetIds = [];
-
+			/* don't add asset owned since it creating multiple entreis - codec - 2/3/2018
                         $.each(NRS.accountInfo.unconfirmedAssetBalances, function (key, assetBalance) {
                             if (assetIds.indexOf(assetBalance.asset) == -1) {
                                 newAssetIds.push(assetBalance.asset);
                                 assetIds.push(assetBalance.asset);
                             }
                         });
-
+			*/
                         //add to bookmarked assets
                         if (newAssetIds.length) {
                             var qs = [];
@@ -157,7 +157,7 @@ var NRS = (function (NRS, $, undefined) {
                         }
                     } else {
                         NRS.loadAssetExchangeSidebar(callback);
-                    }*/
+                    }
                 });
                 loadAssetFromURL();
             });
@@ -833,7 +833,7 @@ var NRS = (function (NRS, $, undefined) {
         var params = {
             "asset": assetId,
             "firstIndex": 0,
-            "lastIndex": 25
+            "lastIndex": 99
         };
         async.parallel([
             function(callback) {
@@ -924,13 +924,25 @@ var NRS = (function (NRS, $, undefined) {
         var options = {
             "asset": assetId,
             "firstIndex": 0,
-            "lastIndex": 50
+            "lastIndex": 99
         };
 
         if (assetTradeHistoryType == "you") {
             options["account"] = NRS.accountRS;
         }
-
+	
+	/* get exchange rate for selected asset - codec - 2018/3/5 */
+	$("#asset_rate").html('');
+	NRS.sendRequest("getLastTrades", {
+                    "assets": assetId
+        }, function (response) {
+        	if(response.trades.length==0){
+        		$("#asset_rate").html('').hide();
+        	}else{
+        		$("#asset_rate").html('AMX/' + currentAsset.name + ' ' + NRS.formatOrderPricePerWholeQNT(response.trades[0].priceNQT, currentAsset.decimals)).show();
+        	}
+        });
+        
         NRS.sendRequest("getTrades+" + assetId, options, function (response) {
             var exchangeTradeHistoryTable = $("#asset_exchange_trade_history_table");
             if (response.trades && response.trades.length) {
