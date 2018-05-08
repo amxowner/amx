@@ -37,7 +37,7 @@
 amx.shareMyAddress=true
 
 # Port for incoming peer to peer networking requests, if enabled.
-amx.peerServerPort=
+amx.peerServerPort=2052
 
 # Enable UPnP for the peer port.
 amx.enablePeerUPnP=true
@@ -72,7 +72,7 @@ amx.defaultPeers=
 
 # A list of well known peer addresses / host names, separated by '; '. These
 # peers are always kept in connected state.
-amx.wellKnownPeers=
+amx.wellKnownPeers=172.104.243.103;172.104.100.160;139.162.31.199;178.79.155.165;173.255.203.48;
 
 # Known bad peers to be blacklisted.
 amx.knownBlacklistedPeers=
@@ -187,11 +187,11 @@ amx.enableAPIServer=true
 amx.allowedBotHosts=*;
 
 # Port for http/json API requests.
-amx.apiServerPort=
+amx.apiServerPort=2082
 
 # Port for https/json API request. If same as amx.apiServerPort, the amx.apiSSL
 # setting determines whether SSL is used or not.
-amx.apiServerSSLPort=
+amx.apiServerSSLPort=2082
 
 # Enable UPnP for the API ports.
 amx.enableAPIUPnP=false
@@ -660,4 +660,4 @@ amx.forgerSecretPhrase=
 #amx.transactionFee=1000000000
 
 # Fee divided by reductorFee
-amx.reductorFee=
+amx.reductorFee=100
