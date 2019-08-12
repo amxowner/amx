@@ -72,7 +72,7 @@ amx.defaultPeers=
 
 # A list of well known peer addresses / host names, separated by '; '. These
 # peers are always kept in connected state.
-amx.wellKnownPeers=172.104.243.103;172.104.100.160;139.162.31.199;178.79.155.165;173.255.203.48;
+amx.wellKnownPeers=139.162.7.86;139.162.248.149;172.105.199.200;139.162.175.96;47.52.254.54;
 
 # Known bad peers to be blacklisted.
 amx.knownBlacklistedPeers=
